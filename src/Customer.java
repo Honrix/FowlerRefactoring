@@ -1,5 +1,4 @@
 import java.lang.*;
-import java.util.*;
 
 class Customer {
 
@@ -31,7 +30,10 @@ class Customer {
         newResult.addLine("\t" + "Title" + "\t" + "\t" + "Days" + "\t" + "Amount");
 
         for(Rental rental: rentalsList.getRentals()){
-            newResult.addLine("\t" + rental.getMovie().getTitle()+ "\t" + "\t" + rental.getDaysRented() + "\t" + String.valueOf(rental.getPrice()));
+            newResult.addLine(
+                    "\t" + rental.getMovie().getTitle()+ "\t" +
+                            "\t" + rental.getDaysRented() + "\t" +
+                            String.valueOf(rental.getPrice()));
         }
 
         newResult.addLine("Amount owed is " + String.valueOf(getTotalAmount()));
