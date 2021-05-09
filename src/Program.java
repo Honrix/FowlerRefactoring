@@ -18,7 +18,7 @@ public class Program {
         Customer c1 = new Customer("joe");
 
         for(int i = 0; i < 2; i++){
-            Movie m = new Movie("movie" + i, (i+1));
+            Movie m = new Movie("movie" + (i + 1), (i+1));
             Rental r = new Rental(m, (i < 1? 10 : 5));
             c1.addRental(r);
 
