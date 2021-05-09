@@ -4,16 +4,16 @@ import java.util.*;
 class Customer {
 
     private String name;
-    private Vector rentals = new Vector();
     private Result result;
+    private CustomerRentals rentalsList = new CustomerRentals();
 
     public Customer (String newname){
         name = newname;
     };
 
-    public void addRental(Rental arg) {
+    public void addRental(Rental rental) {
+        rentalsList.addRental(rental);
 
-        rentals.addElement(arg);
     };
 
     public String getName (){
@@ -28,23 +28,20 @@ class Customer {
     public Result getResult(){
         double totalAmount = 0;
         int frequentRenterPoints = 0;
-        Enumeration enum_rentals = rentals.elements();
-
         Result newResult = new Result("Rental Record for " + this.getName());
         newResult.addLine("\t" + "Title" + "\t" + "\t" + "Days" + "\t" + "Amount");
 
-        while (enum_rentals.hasMoreElements()) {
+        for(Rental rental: rentalsList.getRentals()) {
             double thisAmount = 0;
-            Rental each = (Rental) enum_rentals.nextElement();
-            thisAmount = amountFor(each);
+            thisAmount = amountFor(rental);
             frequentRenterPoints ++;
             if (
-                    (each.getMovie().getPriceCode() == Movie.NEW_RELEASE) &&
-                            each.getDaysRented() > 1
+                    (rental.getMovie().getPriceCode() == Movie.NEW_RELEASE) &&
+                            rental.getDaysRented() > 1
             ) {
                 frequentRenterPoints++;
             }
-            newResult.addLine("\t" + each.getMovie().getTitle()+ "\t" + "\t" + each.getDaysRented() + "\t" + String.valueOf(thisAmount));
+            newResult.addLine("\t" + rental.getMovie().getTitle()+ "\t" + "\t" + rental.getDaysRented() + "\t" + String.valueOf(thisAmount));
             totalAmount += thisAmount;
         }
         newResult.addLine("Amount owed is " + String.valueOf(totalAmount));
