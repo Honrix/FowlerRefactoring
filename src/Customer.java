@@ -6,6 +6,7 @@ class Customer {
     private String name;
     private Result result;
     private CustomerRentals rentalsList = new CustomerRentals();
+    private int frequentRenterPoints = 0;
 
     public Customer (String newname){
         name = newname;
@@ -26,14 +27,29 @@ class Customer {
     }
 
     public Result getResult(){
-        double totalAmount = 0;
-        int frequentRenterPoints = 0;
         Result newResult = new Result("Rental Record for " + this.getName());
         newResult.addLine("\t" + "Title" + "\t" + "\t" + "Days" + "\t" + "Amount");
 
-        for(Rental rental: rentalsList.getRentals()) {
-            double thisAmount = 0;
-            thisAmount = amountFor(rental);
+        for(Rental rental: rentalsList.getRentals()){
+            newResult.addLine("\t" + rental.getMovie().getTitle()+ "\t" + "\t" + rental.getDaysRented() + "\t" + String.valueOf(rental.getPrice()));
+        }
+
+        newResult.addLine("Amount owed is " + String.valueOf(getTotalAmount()));
+        newResult.addLine("You earned " + String.valueOf(getFrequentRenterPoints()) + " frequent renter points");
+
+        return newResult;
+    }
+
+    public double getTotalAmount(){
+        double totalAmount = 0;
+        for(Rental rental: rentalsList.getRentals()){
+            totalAmount += rental.getPrice();
+        }
+        return totalAmount;
+    }
+
+    public int getFrequentRenterPoints(){
+        for(Rental rental: rentalsList.getRentals()){
             frequentRenterPoints ++;
             if (
                     (rental.getMovie().getPriceCode() == Movie.NEW_RELEASE) &&
@@ -41,13 +57,9 @@ class Customer {
             ) {
                 frequentRenterPoints++;
             }
-            newResult.addLine("\t" + rental.getMovie().getTitle()+ "\t" + "\t" + rental.getDaysRented() + "\t" + String.valueOf(thisAmount));
-            totalAmount += thisAmount;
         }
-        newResult.addLine("Amount owed is " + String.valueOf(totalAmount));
-        newResult.addLine("You earned " + String.valueOf(frequentRenterPoints) + " frequent renter points");
+        return frequentRenterPoints;
 
-        return newResult;
     }
 
     private double amountFor(Rental each) {
