@@ -5,6 +5,7 @@ class Customer {
 
     private String name;
     private Vector rentals = new Vector();
+    private Result result;
 
     public Customer (String newname){
         name = newname;
@@ -24,8 +25,8 @@ class Customer {
         int frequentRenterPoints = 0;
         Enumeration enum_rentals = rentals.elements();
 
-        String result = "Rental Record for " + this.getName() + "\n";
-        result += "\t" + "Title" + "\t" + "\t" + "Days" + "\t" + "Amount" + "\n";
+        result = new Result("Rental Record for " + this.getName());
+        result.addLine("\t" + "Title" + "\t" + "\t" + "Days" + "\t" + "Amount");
 
         while (enum_rentals.hasMoreElements()) {
             double thisAmount = 0;
@@ -42,13 +43,13 @@ class Customer {
                 frequentRenterPoints++;
             }
             //show figures for this rental
-            result += "\t" + each.getMovie().getTitle()+ "\t" + "\t" + each.getDaysRented() + "\t" + String.valueOf(thisAmount) + "\n";
+            result.addLine("\t" + each.getMovie().getTitle()+ "\t" + "\t" + each.getDaysRented() + "\t" + String.valueOf(thisAmount));
             totalAmount += thisAmount;
         }
         //add footer lines
-        result += "Amount owed is " + String.valueOf(totalAmount) + "\n";
-        result += "You earned " + String.valueOf(frequentRenterPoints) + " frequent renter points";
-        return result;
+        result.addLine("Amount owed is " + String.valueOf(totalAmount));
+        result.addLine("You earned " + String.valueOf(frequentRenterPoints) + " frequent renter points");
+        return result.getResult();
     }
 
     private double amountFor(Rental each) {
