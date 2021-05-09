@@ -13,11 +13,6 @@ public class Movie extends MovieSuper {
         return priceCode;
     }
 
-    public void setPriceCode(int arg) {
-
-        priceCode = arg;
-    }
-
     public String getTitle (){
 
         return title;
