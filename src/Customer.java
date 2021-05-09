@@ -21,14 +21,13 @@ class Customer {
     };
 
     public String statement() {
-        double totalAmount = 0;
-        int frequentRenterPoints = 0;
-
-        result = getResult(totalAmount, frequentRenterPoints);
+        result = getResult();
         return result.getResult();
     }
 
-    public Result getResult(double totalAmount, int frequentRenterPoints){
+    public Result getResult(){
+        double totalAmount = 0;
+        int frequentRenterPoints = 0;
         Enumeration enum_rentals = rentals.elements();
 
         Result newResult = new Result("Rental Record for " + this.getName());
