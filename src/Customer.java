@@ -16,6 +16,10 @@ class Customer {
 
     };
 
+    public void setRentals(CustomerRentals rentals){
+        rentalsList = rentals;
+    }
+
     public String getName (){
         return name;
     };
