@@ -1,6 +1,6 @@
 public class Result {
 
-    String result = "";
+    private String result = "";
 
     public Result(String input){
         result = input;

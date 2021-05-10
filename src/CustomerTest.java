@@ -1,3 +1,5 @@
+import org.junit.jupiter.api.Assertions;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class CustomerTest {
@@ -47,7 +49,7 @@ class CustomerTest {
                 "\tTitle\t\tDays\tAmount\n" +
                 "Amount owed is 0.0\n" +
                 "You earned 0 frequent renter points");
-        assertEquals(result.result, customer.getResult().result);
+        assertEquals(result.getResult(), customer.getResult().getResult());
     }
 
     @org.junit.jupiter.api.Test
