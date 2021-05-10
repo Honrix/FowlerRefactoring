@@ -6,7 +6,8 @@ import movie.Movie;
 import rental.Rental;
 import result.Result;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertEquals;
+
 
 public class CustomerTest {
 
