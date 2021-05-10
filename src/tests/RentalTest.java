@@ -1,9 +1,13 @@
+package tests;
+
+import movie.Movie;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import rental.Rental;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class RentalTest {
+public class RentalTest {
 
     private Rental rental;
     private Movie movie;

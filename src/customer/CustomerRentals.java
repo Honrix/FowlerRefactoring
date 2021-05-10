@@ -1,7 +1,11 @@
+package customer;
+
+import rental.Rental;
+
 import java.util.ArrayList;
 import java.util.List;
 
-class CustomerRentals {
+public class CustomerRentals {
 
     private final List<Rental> rentals = new ArrayList<>();
 

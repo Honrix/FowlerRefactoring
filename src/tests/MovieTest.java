@@ -1,9 +1,12 @@
+package tests;
+
+import movie.Movie;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class MovieTest {
+public class MovieTest {
 
     private Movie movie;
     private String title = "movieTitle";

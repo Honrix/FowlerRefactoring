@@ -1,3 +1,5 @@
+package movie;
+
 public class Movie extends MovieSuper {
 
     private String title;

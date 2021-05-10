@@ -1,8 +1,14 @@
-import org.junit.jupiter.api.Assertions;
+package tests;
+
+import customer.Customer;
+import customer.CustomerRentals;
+import movie.Movie;
+import rental.Rental;
+import result.Result;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class CustomerTest {
+public class CustomerTest {
 
     private Customer customer;
     private Movie movie;
@@ -21,7 +27,7 @@ class CustomerTest {
     @org.junit.jupiter.api.Test
     void addRental() {
         rentals.addRental(rental);
-        String expectedString = "Rental Record for customerName" +
+        String expectedString = "rental.Rental Record for customerName" +
                 "\n\t" + "Title" + "\t" + "\t" + "Days" + "\t" + "Amount" +
                 "\n\t" + "movieName" + "\t" + "\t" + "2" + "\t" + "1.5" +
                 "\n" + "Amount owed is 1.5" +
@@ -36,7 +42,7 @@ class CustomerTest {
 
     @org.junit.jupiter.api.Test
     void statement() {
-        String expectedString = "Rental Record for customerName" +
+        String expectedString = "rental.Rental Record for customerName" +
                 "\n\t" + "Title" + "\t" + "\t" + "Days" + "\t" + "Amount" +
                 "\n" + "Amount owed is 0.0" +
                 "\n" + "You earned 0 frequent renter points";
@@ -45,7 +51,7 @@ class CustomerTest {
 
     @org.junit.jupiter.api.Test
     void getResult() {
-        Result result = new Result("Rental Record for customerName\n" +
+        Result result = new Result("rental.Rental Record for customerName\n" +
                 "\tTitle\t\tDays\tAmount\n" +
                 "Amount owed is 0.0\n" +
                 "You earned 0 frequent renter points");

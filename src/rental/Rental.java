@@ -1,4 +1,8 @@
-class Rental {
+package rental;
+
+import movie.Movie;
+
+public class Rental {
 
     private Movie movie;
     private int daysRented;

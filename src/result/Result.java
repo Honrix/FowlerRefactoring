@@ -1,3 +1,5 @@
+package result;
+
 public class Result {
 
     private String result = "";

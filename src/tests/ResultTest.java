@@ -1,9 +1,12 @@
+package tests;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import result.Result;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ResultTest {
+public class ResultTest {
 
     private Result result;
     private String testLine = "TestLine";

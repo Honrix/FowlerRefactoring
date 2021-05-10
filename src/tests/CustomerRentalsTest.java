@@ -1,12 +1,18 @@
+package tests;
+
+import customer.CustomerRentals;
+import movie.Movie;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import rental.Rental;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertEquals;
 
-class CustomerRentalsTest {
+
+public class CustomerRentalsTest {
 
     private CustomerRentals customerRentals;
     private List<Rental> rentals = new ArrayList<>();

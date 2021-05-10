@@ -1,6 +1,12 @@
+package customer;
+
+import movie.Movie;
+import rental.Rental;
+import result.Result;
+
 import java.lang.*;
 
-class Customer {
+public class Customer {
 
     private String name;
     private Result result;

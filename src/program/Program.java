@@ -1,3 +1,9 @@
+package program;
+
+import customer.Customer;
+import movie.Movie;
+import rental.Rental;
+
 import java.lang.*;
 
 public class Program {
@@ -7,7 +13,7 @@ public class Program {
         int[] numbers = {10, 5};
 
         String result;
-        System.out.println("Welcome to the Movie Store");
+        System.out.println("Welcome to the movie.Movie Store");
 
         Customer c1 = new Customer("joe");
 
